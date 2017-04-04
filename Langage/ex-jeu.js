@@ -59,3 +59,4 @@ const jouer = function() {
     });
 };
 jouer();
+console.log('Coucou');

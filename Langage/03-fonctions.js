@@ -77,3 +77,16 @@ var addition = function(a, b) {
 var addition = function(a, b = 0) {
     return a + b;
 };
+
+var logClosure = function(msg) {
+
+    return function() {
+        console.log(msg);
+    };
+};
+
+var logHello = logClosure('Hello');
+console.log(typeof logHello); // function
+logHello();
+var logCoucou = logClosure('Coucou');
+logCoucou();
