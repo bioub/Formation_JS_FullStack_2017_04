@@ -25,37 +25,50 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min +1)) + min;
 }
 
-const entierAlea = getRandomIntInclusive(0, 100);
-const essais = [];
 
-const jouer = function() {
-    if (essais.length) {
-        console.log('Précédents essais : ' + essais.join(', '));
+const Jeu = function(options) {
+    options = options || {};
+    const min = options.min || 0;
+    const max = options.max || 100;
+
+    this._entierAlea = getRandomIntInclusive(min, max);
+    this._essais = [];
+};
+
+Jeu.prototype.jouer = function() {
+    if (this._essais.length) {
+        console.log('Précédents essais : ' + this._essais.join(', '));
     }
 
-    rl.question('Quel est le nombre ? ', (saisie) => {
+    rl.question('Quel est le nombre ? ', function answerCb(saisie) {
 
         const entierSaisi = Number.parseInt(saisie);
 
         if (Number.isNaN(entierSaisi)) {
             console.log('Erreur : il faut saisir un nombre');
-            return jouer();
+            return this.jouer();
         }
 
-        essais.push(entierSaisi);
+        this._essais.push(entierSaisi);
 
-        if (entierSaisi < entierAlea) {
+        if (entierSaisi < this._entierAlea) {
             console.log('Trop petit');
-            return jouer();
+            return this.jouer();
         }
 
-        if (entierSaisi > entierAlea) {
+        if (entierSaisi > this._entierAlea) {
             console.log('Trop grand');
-            return jouer();
+            return this.jouer();
         }
 
         console.log('Gagné !!!');
         rl.close();
-    });
+        process.exit(0);
+    }.bind(this));
 };
-jouer();
+
+const jeu = new Jeu();
+
+jeu.jouer();
+
+

@@ -36,6 +36,7 @@ var addition = function(a, b) {
     return somme;
 };
 
+// ES6 REST Parameter
 var addition = function(a, b, ...c) {
     var somme = Number(a) + Number(b);
 
@@ -50,15 +51,20 @@ var addition = function(...nbs) {
     return nbs.reduce((acc, nb) => acc + nb);
 };
 
-console.log(addition(1, 2));
-console.log(addition(1, 2, 3));
-console.log(addition(1, 2, 3, 4));
-
 // Fonctionnement du reduce
 // nbs === [1, 2, 3, 4]
 // acc === 1, nb === 2, return 3
 // acc === 3, nb === 3, return 6
 // acc === 6, nb === 4, return 10
+
+console.log(addition(1, 2));
+console.log(addition(1, 2, 3));
+console.log(addition(1, 2, 3, 4));
+
+// ES6 Spread Parameter
+console.log(addition(...[1, 2, 3, 4]));
+
+
 
 // Valeur par défaut
 var addition = function(a, b) {
@@ -78,6 +84,8 @@ var addition = function(a, b = 0) {
     return a + b;
 };
 
+console.log(addition(1));
+
 var logClosure = function(msg) {
 
     return function() {
@@ -87,6 +95,6 @@ var logClosure = function(msg) {
 
 var logHello = logClosure('Hello');
 console.log(typeof logHello); // function
-logHello();
+logHello(); // Hello
 var logCoucou = logClosure('Coucou');
-logCoucou();
+logCoucou(); // Coucou

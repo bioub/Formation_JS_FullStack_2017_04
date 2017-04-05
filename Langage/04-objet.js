@@ -3,6 +3,7 @@ console.log(typeof console); // object
 console.log(typeof Math); // object
 console.log(typeof JSON); // object
 console.log(typeof global); // object
+console.log(typeof process); // object
 
 // On peut étendre des objets existants
 console.log(Math.sum); // undefined
@@ -27,6 +28,9 @@ console.log(Math.sum); // undefined
 var contact = {
     prenom: 'Romain',
     hello: function() {
+        return 'Bonjour je suis ' + this.prenom;
+    },
+    helloES6() {
         return 'Bonjour je suis ' + this.prenom;
     }
 };
@@ -121,3 +125,21 @@ for (var prop in romain) {
         console.log(romain[prop]);
     }
 }
+
+var Formateur = function(prenom, specialite) {
+    Contact.call(this, prenom);
+    this._specialite = specialite;
+};
+
+Formateur.prototype = Object.create(Contact.prototype);
+Formateur.prototype.hello = function() {
+    return Contact.prototype.hello.call(this) + ', je suis formateur';
+};
+
+var romain = new Formateur('Romain', 'JS');
+console.log(romain._prenom); // Romain
+console.log(romain._specialite); // JS
+console.log(romain.hello()); // Bonjour je suis Romain, je suis formateur
+console.log(romain instanceof Formateur);
+console.log(romain instanceof Contact);
+console.log(romain instanceof Object);
