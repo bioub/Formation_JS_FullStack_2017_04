@@ -1,3 +1,9 @@
+// Séparer ce code en 3 fichiers
+// 1 - Le fichier index.js
+// new Jeu()...
+// 2 - random.js avec les fonctions random
+// 3 - jeu.js qui exporte Jeu (garder readline dans ce fichier)
+
 const readline = require('readline');
 
 const rl = readline.createInterface({
