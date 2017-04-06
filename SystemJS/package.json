@@ -6,6 +6,7 @@
     "jspm": "^0.16.53"
   },
   "scripts": {
+    "postinstall": "jspm install",
     "start:dev": "http-server -p 8000"
   },
   "jspm": {

@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 
 app.get('/hello.txt', (req, res) => {
     res.setHeader('Content-type', 'text/plain');
-    res.send('Hello');
+    res.end('Hello');
 });
 
 app.get('/hello.json', (req, res) => {

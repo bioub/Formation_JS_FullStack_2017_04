@@ -1,0 +1,16 @@
+{
+  "name": "address-book",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node server",
+    "start:dev": "nodemon server"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "jspm": "^0.16.53",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
