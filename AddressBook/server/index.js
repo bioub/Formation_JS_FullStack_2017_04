@@ -10,7 +10,7 @@ mongoose.connect('mongodb://localhost/addressbook');
 const app = express();
 
 app.use(morgan('dev'));
-app.use(express.static(path.resolve(__dirname, '..', 'client')))
+app.use(express.static(path.resolve(__dirname, '..', 'client')));
 /*
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
@@ -26,6 +26,12 @@ app.use('/api', (req, res, next) => {
   res.json({
     error: 'Page not found'
   });
+});
+
+// Si le fichier n'existe on laisse angular
+// traiter l'url (le router ui-router qui devra gérer)
+app.use((req, res, next) => {
+  res.sendFile(path.resolve(__dirname, '..', 'client', 'index.html'));
 });
 
 // Middleware 500

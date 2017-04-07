@@ -2,6 +2,7 @@
   "name": "address-book",
   "version": "0.0.1",
   "scripts": {
+    "postinstall": "jspm install",
     "start": "node server",
     "start:dev": "nodemon server"
   },
