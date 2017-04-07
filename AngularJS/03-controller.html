@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/angular/angular.js"></script>
+</head>
+<body ng-controller="PrenomCtrl">
+<div>
+    Prénom : <input ng-model="prenom">
+    <button ng-click="add()">Ajouter</button>
+</div>
+<p ng-repeat="prenom in prenoms">
+    Bonjour <span ng-bind="prenom"></span> !
+</p>
+<script>
+    angular.module('app', [])
+        .controller('PrenomCtrl', function($scope) {
+            $scope.prenoms = ['Jean', 'Eric'];
+
+            $scope.add = function() {
+                $scope.prenoms.push($scope.prenom);
+            };
+        });
+</script>
+</body>
+</html>

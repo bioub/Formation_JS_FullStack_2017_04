@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app.module">
 <head>
+    <base href="/">
   <meta charset="UTF-8">
   <title>Title</title>
+  <link rel="stylesheet" href="jspm_packages/github/twbs/bootstrap@3.3.7/css/bootstrap.css">
 </head>
 <body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <span class="navbar-brand">AddressBook</span>
+        </div>
+        <div class="navbar-left">
+            <ul class="nav navbar-nav">
+                <li ui-sref-active="active">
+                    <a ui-sref="contact-list">Liste</a>
+                </li>
+                <li>
+                    <a href="#">Ajouter</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" ui-view>
 
-
+</div>
+<script src="jspm_packages/system.src.js"></script>
+<script src="config.js"></script>
+<script>
+    System.import('app/app.module');
+</script>
 </body>
 </html>

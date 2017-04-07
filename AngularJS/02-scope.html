@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/angular/angular.js"></script>
+</head>
+<!--
+4 - Scope : Même analogie qu'un scope/portée dans une fonction
+JS sauf qu'on associe les scopes à des balises
+const body = function() {
+    var prenoms = ['Romain', 'Eric'];
+
+    var p = function() {
+        var prenom = 'Romain';
+        var $index = 0;
+        var $first = true;
+        var $last = false;
+    }
+
+    var p = function() {
+        var prenom = 'Eric';
+        var $index = 1;
+        var $first = false;
+        var $last = true;
+    }
+}
+-->
+<body ng-app>
+<div>
+    Prénoms : <input ng-model="prenoms" ng-list>
+</div>
+<p ng-repeat="prenom in prenoms track by $index">
+    Bonjour <span ng-bind="prenom"></span> !
+</p>
+</body>
+</html>

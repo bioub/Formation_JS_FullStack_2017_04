@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/angular/angular.js"></script>
+</head>
+<!--
+1 - directive : attribut/element qui masque du JS
+2 - compilation : transformation des directives en JS
+3 - data binding : synchro entre le model et la vue
+ng-model : data binding dans les 2 sens
+ng-bind : data binding model -> vue
+-->
+<body ng-app>
+    <div>
+        Prénom : <input ng-model="prenom">
+    </div>
+    <p>
+        Bonjour <span ng-bind="prenom"></span> !
+    </p>
+</body>
+</html>
