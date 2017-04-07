@@ -1,0 +1,9 @@
+<h2>Afficher un contact</h2>
+<p>Prénom : {{$ctrl.contact.prenom}}</p>
+<p>Nom : {{$ctrl.contact.nom}}</p>
+<p ng-if="$ctrl.contact.email">
+    Email : {{$ctrl.contact.email}}
+</p>
+<p ng-if="$ctrl.contact.telephone">
+    Téléphone : {{$ctrl.contact.telephone}}
+</p>

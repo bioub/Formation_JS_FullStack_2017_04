@@ -6,7 +6,7 @@
     <tr ng-repeat="contact in $ctrl.contacts | filter:filtreContact">
         <td>{{contact.prenom}} {{contact.nom}}</td>
         <td>
-            <a href="#" class="btn btn-primary btn-xs">Afficher</a>
+            <a ui-sref="contact-show({id: contact._id})" class="btn btn-primary btn-xs">Afficher</a>
         </td>
     </tr>
 </table>
